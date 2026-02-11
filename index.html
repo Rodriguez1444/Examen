@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Examen - Desarrollo Web</title>
+
+<style>
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    background:white;
+    width:800px;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.4);
+    overflow-y:auto;
+    max-height:95vh;
+}
+
+h1{
+    text-align:center;
+}
+
+.bienvenida{
+    font-size:15px;
+    text-align:center;
+    color:#444;
+    margin-bottom:5px;
+}
+
+.frase{
+    font-size:14px;
+    text-align:center;
+    color:#243b55;
+    font-style:italic;
+    margin-bottom:20px;
+}
+
+input[type="text"],
+input[type="password"]{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    background:#243b55;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#141e30;
+}
+
+#examen{
+    display:none;
+}
+
+.question{
+    margin:15px 0;
+    padding:15px;
+    background:#f2f2f2;
+    border-radius:10px;
+}
+
+#timer{
+    font-weight:bold;
+    color:#d62828;
+    text-align:right;
+}
+
+#resultado{
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+    margin-top:20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Examen de Desarrollo Web💻</h1>
+
+<p class="bienvenida">
+Bienvenido a tu examen. Es un gusto tenerte aquí estudiando con nosotros.
+</p>
+
+<p class="frase">
+Recuerda: cada esfuerzo que haces hoy construye tu éxito del mañana. ¡Confía en ti!
+</p>
+
+<div id="login">
+    <label>Nombre del alumno:</label>
+    <input type="text" id="nombre">
+
+    <label>Palabra clave:</label>
+    <input type="password" id="clave">
+
+    <button onclick="verificarClave()">Comenzar Examen</button>
+</div>
+
+<div id="examen">
+
+<p id="timer">Tiempo restante: 1:00</p>
+
+<form id="formExamen">
+
+<div class="question">
+<p>1. ¿Qué es HTML?</p>
+<input type="radio" name="p1" value="a"> Un lenguaje de programación<br>
+<input type="radio" name="p1" value="b"> Un lenguaje de marcado<br>
+<input type="radio" name="p1" value="c"> Una base de datos<br>
+</div>
+
+<div class="question">
+<p>2. ¿Cuál es la función principal de CSS?</p>
+<input type="radio" name="p2" value="a"> Dar estilo y diseño<br>
+<input type="radio" name="p2" value="b"> Crear bases de datos<br>
+<input type="radio" name="p2" value="c"> Programar el servidor<br>
+</div>
+
+<div class="question">
+<p>3. ¿Para qué sirve JavaScript?</p>
+<input type="radio" name="p3" value="a"> Dar interactividad<br>
+<input type="radio" name="p3" value="b"> Diseñar imágenes<br>
+<input type="radio" name="p3" value="c"> Crear tablas en Excel<br>
+</div>
+
+<div class="question">
+<p>4. ¿Qué etiqueta se usa para crear un enlace?</p>
+<input type="radio" name="p4" value="a"> &lt;img&gt;<br>
+<input type="radio" name="p4" value="b"> &lt;a&gt;<br>
+<input type="radio" name="p4" value="c"> &lt;link&gt;<br>
+</div>
+
+<div class="question">
+<p>5. ¿Qué propiedad cambia el color del texto en CSS?</p>
+<input type="radio" name="p5" value="a"> font-color<br>
+<input type="radio" name="p5" value="b"> text-style<br>
+<input type="radio" name="p5" value="c"> color<br>
+</div>
+
+<div class="question">
+<p>6. ¿Qué significa HTTP?</p>
+<input type="radio" name="p6" value="a"> HyperText Transfer Protocol<br>
+<input type="radio" name="p6" value="b"> High Transfer Text Program<br>
+<input type="radio" name="p6" value="c"> Hyper Tool Transfer Page<br>
+</div>
+
+<div class="question">
+<p>7. ¿Qué se usa para estructurar una página web?</p>
+<input type="radio" name="p7" value="a"> CSS<br>
+<input type="radio" name="p7" value="b"> HTML<br>
+<input type="radio" name="p7" value="c"> Photoshop<br>
+</div>
+
+<div class="question">
+<p>8. ¿Qué método se usa para seleccionar un elemento en JavaScript?</p>
+<input type="radio" name="p8" value="a"> getElementById()<br>
+<input type="radio" name="p8" value="b"> selectItem()<br>
+<input type="radio" name="p8" value="c"> queryData()<br>
+</div>
+
+<div class="question">
+<p>9. ¿Qué significa URL?</p>
+<input type="radio" name="p9" value="a"> Uniform Resource Locator<br>
+<input type="radio" name="p9" value="b"> Universal Resource Link<br>
+<input type="radio" name="p9" value="c"> Unique Reference Line<br>
+</div>
+
+<div class="question">
+<p>10. ¿Qué etiqueta se usa para insertar una imagen?</p>
+<input type="radio" name="p10" value="a"> &lt;picture&gt;<br>
+<input type="radio" name="p10" value="b"> &lt;img&gt;<br>
+<input type="radio" name="p10" value="c"> &lt;src&gt;<br>
+</div>
+
+<button type="button" onclick="calificar()">Finalizar Examen</button>
+
+</form>
+
+<p id="resultado"></p>
+
+</div>
+</div>
+
+<script>
+
+const palabraCorrecta = "WEB2026";
+let intentos = 0;
+let maxIntentos = 3;
+let bloqueado = false;
+let tiempo = 1 * 60; // 20 MINUTOS
+let intervalo;
+
+function verificarClave(){
+
+    let nombre = document.getElementById("nombre").value.trim();
+
+    if(nombre === ""){
+        alert("Por favor ingresa tu nombre");
+        return;
+    }
+
+    if(bloqueado) return;
+
+    let claveIngresada = document.getElementById("clave").value;
+
+    if(claveIngresada === palabraCorrecta){
+        document.getElementById("login").style.display = "none";
+        document.getElementById("examen").style.display = "block";
+        iniciarTimer();
+    }else{
+        intentos++;
+        alert("Clave incorrecta. Intento " + intentos + " de 3");
+
+        if(intentos >= maxIntentos){
+            bloquearAcceso();
+        }
+    }
+}
+
+function bloquearAcceso(){
+    bloqueado = true;
+    let segundos = 10;
+    let boton = document.querySelector("#login button");
+    boton.disabled = true;
+
+    let intervaloBloqueo = setInterval(function(){
+        boton.innerText = "Espera " + segundos + "s";
+        segundos--;
+
+        if(segundos < 0){
+            clearInterval(intervaloBloqueo);
+            boton.disabled = false;
+            boton.innerText = "Comenzar Examen";
+            intentos = 0;
+            bloqueado = false;
+        }
+    },1000);
+}
+
+function iniciarTimer(){
+    intervalo = setInterval(function(){
+
+        let min = Math.floor(tiempo / 60);
+        let seg = tiempo % 60;
+        seg = seg < 10 ? "0" + seg : seg;
+
+        document.getElementById("timer").innerText =
+            "Tiempo restante: " + min + ":" + seg;
+
+        tiempo--;
+
+        if(tiempo < 0){
+            clearInterval(intervalo);
+
+            document.querySelectorAll("#formExamen input").forEach(input => {
+                input.disabled = true;
+            });
+
+            document.querySelector("#formExamen button").disabled = true;
+
+            let nombre = document.getElementById("nombre").value;
+
+            document.getElementById("resultado").innerHTML =
+            `⏰ ${nombre}, se te acaba de agotar el tiempo.<br>
+            Vuelve para la próxima y sigue preparándote.<br><br>
+            <button onclick="salir()">Salir del Examen</button>`;
+        }
+
+    },1000);
+}
+
+function calificar(){
+
+    let confirmar = confirm("¿Estás seguro de tus respuestas?");
+
+    if(!confirmar){
+        return;
+    }
+
+    clearInterval(intervalo);
+
+    let nombre = document.getElementById("nombre").value;
+    let puntos = 0;
+
+    const respuestas = {
+        p1:"b", p2:"a", p3:"a", p4:"b", p5:"c",
+        p6:"a", p7:"b", p8:"a", p9:"a", p10:"b"
+    };
+
+    for(let pregunta in respuestas){
+        if(document.querySelector(`input[name="${pregunta}"]:checked`)?.value === respuestas[pregunta]){
+            puntos++;
+        }
+    }
+
+    let calificacion = (puntos / 10) * 10;
+
+    let mensaje = "";
+
+    if(calificacion >= 9){
+        mensaje = "¡Excelente trabajo!";
+    }else if(calificacion >= 7){
+        mensaje = "Buen trabajo, pero puedes mejorar.";
+    }else if(calificacion >= 6){
+        mensaje = "Aprobado, sigue estudiando.";
+    }else{
+        mensaje = "Necesitas repasar más el tema.";
+    }
+
+    document.getElementById("resultado").innerHTML =
+        `🎓 Felicidades ${nombre}!<br>
+        Tu calificación es: ${calificacion.toFixed(1)} / 10<br>
+        ${mensaje}<br><br>
+        <button onclick="salir()">Salir del Examen</button>`;
+}
+
+function salir(){
+    clearInterval(intervalo);
+    document.getElementById("formExamen").reset();
+    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("examen").style.display = "none";
+    document.getElementById("login").style.display = "block";
+    document.getElementById("clave").value = "";
+    tiempo = 20 * 60;
+    document.getElementById("timer").innerText = "Tiempo restante: 20:00";
+    intentos = 0;
+}
+
+</script>
+</body>
+</html>
